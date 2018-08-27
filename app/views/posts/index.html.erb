@@ -1,0 +1,25 @@
+
+<p id="notice"><%= notice %></p>
+
+
+<h1>Listing all Awesome Posts</h1>
+
+
+  <% @posts.each do |post| %>
+    
+       <div>
+        <h3><%= post.title %></h3> 
+        <p><%= truncate post.body, length: 150, separator: '' %></p> 
+       </div> 
+
+    <div>    
+        <p><%= link_to 'Show Full Post', post_comments_path(post) %></p>
+        <p><%= link_to 'Edit', edit_post_path(post) %></p>  
+        <p><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></p> 
+    </div>
+
+    <hr>
+  <% end %>
+    <br>
+
+<%= link_to 'New Post', new_post_path %>
